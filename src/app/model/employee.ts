@@ -6,3 +6,8 @@ export interface Employee {
   designation: string;
   avatar: string;
 }
+
+export interface AddOrEditModalData {
+  employeeDetails: Employee;
+  action: string;
+}

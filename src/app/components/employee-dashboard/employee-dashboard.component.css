@@ -1,0 +1,11 @@
+.layout {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  height: 100vh; /* Full viewport height */
+}
+
+.main-content {
+  padding: 1rem;
+  background-color: #ecf0f1; /* Light background for main content */
+  overflow-y: auto;
+}

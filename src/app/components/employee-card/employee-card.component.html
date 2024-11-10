@@ -1,0 +1,30 @@
+<div class="container responsive-grid">
+    <mat-card *ngFor="let employee of employeesData; index as i;" class="employee-card" appearance="outlined">
+        <mat-card-header class="card-content">
+            <img [src]="employee.avatar" class="header-image" mat-card-avatar>
+            <mat-card-title>{{employee.name}}</mat-card-title>
+            <mat-card-subtitle>{{employee.designation}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="card-content">
+            <strong> <span>Current Company : </span>
+                {{employee.companyName}}</strong>
+
+        </mat-card-content>
+        <mat-card-content class="employee-contacts card-content">
+            <div class="contact-info">
+                <img src="assets/images/envelope-solid.svg" alt="Email Icon" class="icon" />
+                <span>{{ employee.emailId }}</span>
+            </div>
+            <div class="contact-info">
+                <img src="assets/images/phone-solid.svg" alt="Phone Icon" class="icon" />
+                <span>{{ employee.contactNumber }}</span>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button (click)="openEditDialog(i)" mat-button>Edit</button>
+            <button (click)="openDeleteDialog(i)" mat-button>Delete</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

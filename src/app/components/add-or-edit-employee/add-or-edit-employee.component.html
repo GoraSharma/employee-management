@@ -1,0 +1,60 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <h3>Add/Edit a Employee details</h3>
+    <div>
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" />
+        <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+            <small *ngIf="employeeForm.get('name')?.errors?.['required']">Name is required.</small>
+        </div>
+    </div>
+
+    <div>
+        <label for="companyName">Company Name</label>
+        <input id="companyName" type="text" formControlName="companyName" />
+        <div *ngIf="employeeForm.get('companyName')?.invalid && employeeForm.get('companyName')?.touched">
+            <small *ngIf="employeeForm.get('companyName')?.errors?.['required']">Company Name is required.</small>
+        </div>
+    </div>
+
+    <div>
+        <label for="emailId">Email</label>
+        <input id="emailId" formControlName="emailId" type="email" />
+        <div *ngIf="employeeForm.get('emailId')?.invalid && employeeForm.get('emailId')?.touched">
+            <small *ngIf="employeeForm.get('emailId')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="employeeForm.get('emailId')?.errors?.['email']">Invalid email format.</small>
+        </div>
+    </div>
+
+    <div>
+        <label for="designation">Designation</label>
+        <input id="designation" type="text" formControlName="designation" />
+        <div *ngIf="employeeForm.get('designation')?.invalid && employeeForm.get('designation')?.touched">
+            <small *ngIf="employeeForm.get('designation')?.errors?.['designation']">Designation is required.</small>
+        </div>
+    </div>
+
+    <div>
+        <label for="contactNumber">Contact Number</label>
+        <input id="contactNumber" formControlName="contactNumber" />
+        <div *ngIf="employeeForm.get('contactNumber')?.invalid && employeeForm.get('contactNumber')?.touched">
+            <small *ngIf="employeeForm.get('contactNumber')?.errors?.['required']">Contact number is required.</small>
+            <small *ngIf="employeeForm.get('contactNumber')?.errors?.['pattern']">Must be a 10-digit number.</small>
+        </div>
+    </div>
+
+    <div>
+        <label for="avatar">Choose Avatar</label>
+        <div class="avatar-selection">
+          <img class="avatar-img" *ngFor="let avatar of avatars" 
+               [src]="avatar.src" 
+               [alt]="avatar.altText" 
+               [class.selected]="employeeForm.get('avatar')?.value === avatar.src" 
+               (click)="selectAvatar(avatar.src)" />
+        </div>
+        <div *ngIf="employeeForm.get('avatar')?.invalid && employeeForm.get('avatar')?.touched">
+          <small *ngIf="employeeForm.get('avatar')?.errors?.['required']">Avatar is required.</small>
+        </div>
+      </div>
+
+    <button class="submit-btn" type="submit" [disabled]="employeeForm.invalid">Submit</button>
+</form>
