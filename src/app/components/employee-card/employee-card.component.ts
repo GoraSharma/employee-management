@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Employee } from 'src/app/model/employee';
-import { EmployeeService } from 'src/app/services/employee.service';
-import { ConfirmationDialogComponent } from 'src/app/shared/components/comfirmation-dialog/comfirmation-dialog.component';
+import { Employee } from '../../model/employee';
+import { EmployeeService } from './../../services/employee.service';
 import { EditEmployeeComponent } from '../add-or-edit-employee/add-or-edit-employee.component';
+import { ConfirmationDialogComponent } from '../../shared/components/comfirmation-dialog/comfirmation-dialog.component';
 
 @Component({
   selector: 'employee-card',
@@ -17,6 +17,7 @@ export class EmployeeCardComponent implements OnInit {
   constructor(private empService: EmployeeService, private dialog: MatDialog) {}
 
   ngOnInit() {
+    //Fetch the employees data
     this.empService.employees$.subscribe((employeeDetails) => {
       this.employeesData = employeeDetails;
     });

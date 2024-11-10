@@ -1,9 +1,9 @@
-import { EmployeeService } from 'src/app/services/employee.service';
+import { EmployeeService } from '../../services/employee.service';
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { AddOrEditModalData, Employee } from 'src/app/model/employee';
-import { AvatarsImages } from 'src/app/mocks/avatar-urls.mock';
+import { AddOrEditModalData, Employee } from '../../model/employee';
+import { AvatarsImages } from '../../mocks/avatar-urls.mock';
 
 @Component({
   selector: 'app-edit-employee',
