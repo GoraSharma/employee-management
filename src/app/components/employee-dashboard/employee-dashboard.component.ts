@@ -19,19 +19,4 @@ export class EmployeeDashboardComponent implements OnInit {
       this.employeesData = data;
     });
   }
-
-  onSearchTermChange(searchTerm: string) {
-    if (searchTerm) {
-      const lowercasedTerm = searchTerm.toLowerCase();
-      this.filteredEmployees = this.employeesData.filter(
-        (employee) =>
-          employee.name.toLowerCase().includes(lowercasedTerm) ||
-          employee.emailId.toLowerCase().includes(lowercasedTerm)
-      );
-      this.empService.employees.next(this.filteredEmployees);
-    } else {
-      this.filteredEmployees = EmployeDetailsMockData; // Reset to the full list if the search term is empty
-      this.empService.employees.next(this.filteredEmployees);
-    }
-  }
 }
