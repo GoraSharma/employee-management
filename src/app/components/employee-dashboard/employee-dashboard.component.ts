@@ -10,7 +10,6 @@ import { EmployeDetailsMockData } from 'src/app/mocks/employee.mock';
 })
 export class EmployeeDashboardComponent implements OnInit {
   employeesData: Employee[] = [];
-  filteredEmployees: Employee[] = [];
 
   constructor(private empService: EmployeeService) {}
 

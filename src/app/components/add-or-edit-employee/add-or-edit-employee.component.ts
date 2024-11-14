@@ -6,13 +6,14 @@ import { AddOrEditModalData, Employee } from '../../model/employee';
 import { AvatarsImages } from '../../mocks/avatar-urls.mock';
 
 @Component({
-  selector: 'app-edit-employee',
+  selector: 'edit-employee',
   templateUrl: './add-or-edit-employee.component.html',
   styleUrls: ['./add-or-edit-employee.component.css'],
 })
 export class EditEmployeeComponent {
   employeeForm: FormGroup;
   avatars = AvatarsImages;
+  // Choose action edit/delete
   action = '';
   employees: Employee[] = [];
 
@@ -52,13 +53,14 @@ export class EditEmployeeComponent {
 
   onSubmit() {
     if (this.employeeForm.valid) {
+      // If action is edit , edit the employee details
       if (this.action === 'edit') {
         this.employeeService.editEmployee(this.employeeForm.value);
         this.onCancel();
-      } else if (this.action === 'add') {
+      } // If action is add, add the new employee details
+      else if (this.action === 'add') {
         this.employeeService.addEmployee(this.employeeForm.value);
       }
-
       this.onCancel();
     }
   }

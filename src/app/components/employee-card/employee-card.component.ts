@@ -23,19 +23,21 @@ export class EmployeeCardComponent implements OnInit {
     });
   }
 
+  // Open edit dialog
   openEditDialog(index: number) {
     this.selectedIndex = index;
-    const data = {
+    const editData = {
       action: 'edit',
       employeeDetails: this.employeesData[this.selectedIndex],
     };
     this.dialog.open(EditEmployeeComponent, {
-      data: data,
+      data: editData,
       width: '500px',
       maxHeight: '700px',
     });
   }
 
+  // Open Delete Dialog
   openDeleteDialog(index: number) {
     this.selectedIndex = index;
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -45,7 +47,7 @@ export class EmployeeCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // User confirmed the action (e.g., delete employee)
+        // User confirmed the action
         this.deleteEmployee();
       }
     });

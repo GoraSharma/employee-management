@@ -34,7 +34,3 @@
 .navbar-links a:hover {
   color: #f39c12;
 }
-
-.navbar-links .active {
-  border-bottom: 2px solid #f39c12;
-}
